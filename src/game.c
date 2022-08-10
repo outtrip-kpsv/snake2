@@ -3,13 +3,28 @@
 //
 #include "game.h"
 
+#define X 50
+#define Y 20
 
 
-void init_game() {
-    start_ncurses();
+World init_world(){
+    World world;
+    world.mtx = create_mtx(X, Y);
+    world.x = X;
+    world.y = Y;
+    return world;
 }
 
-void runner(World world){
+
+GameData init_game() {
+    GameData data;
+    data.world = init_world();
+    start_ncurses();
+    return data;
+
+}
+
+void runner(GameData data){
     init_game();
-    render(world);
+    render(data.world);
 }

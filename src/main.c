@@ -1,10 +1,8 @@
 #include <stdio.h>
 #include "game.h"
-#include "structures.h"
 
 int main() {
-    World world= init_world();
-//    printf("%d", world.x);
-    runner(world);
+    GameData data = init_game();
+    runner(data);
     return 0;
 }

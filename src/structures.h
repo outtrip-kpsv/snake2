@@ -18,5 +18,18 @@ typedef struct{
     int y;
 } World;
 
-World init_world();
+typedef struct {
+    int x;
+    int y;
+} Positions;
+
+typedef struct {
+    struct Node * node;
+    Positions positions;
+} Node;
+
+typedef struct {
+    World world;
+} GameData;
+
 #endif  // STRUCTURES_STRUCTURES_H
