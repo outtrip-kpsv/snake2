@@ -1,10 +1,15 @@
 //
 // Created by outtrip on 26.07.22.
 //
-void init_game() {
+#include "game.h"
 
+
+
+void init_game() {
+    start_ncurses();
 }
 
-void runer(){
-
+void runner(World world){
+    init_game();
+    render(world);
 }

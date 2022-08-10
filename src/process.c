@@ -18,3 +18,4 @@ void  destroy_mtx(int **mtx, int y) {
     }
     free(mtx);
 }
+

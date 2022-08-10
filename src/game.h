@@ -5,6 +5,9 @@
 #ifndef SRC_GAME_H
 #define SRC_GAME_H
 #include "process.h"
+#include "render.h"
 
+void init_game();
+void runner(World world);
 
 #endif  // SRC_GAME_H

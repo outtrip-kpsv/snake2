@@ -5,15 +5,18 @@
 #ifndef STRUCTURES_STRUCTURES_H
 #define STRUCTURES_STRUCTURES_H
 
-struct init{
+#include "process.h"
+
+typedef struct{
     int x;
     int y;
-};
+} init;
 
-struct field{
-    int ** world;
-    int head_x;
-    int head_y;
-};
+typedef struct{
+    int ** mtx;
+    int x;
+    int y;
+} World;
 
+World init_world();
 #endif  // STRUCTURES_STRUCTURES_H
