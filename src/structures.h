@@ -1,19 +1,15 @@
-//
-// Created by outtrip on 26.07.22.
-//
-
 #ifndef STRUCTURES_STRUCTURES_H
 #define STRUCTURES_STRUCTURES_H
 
-#include "process.h"
+#include <time.h>
 
-typedef struct{
+typedef struct {
     int x;
     int y;
 } init;
 
-typedef struct{
-    int ** mtx;
+typedef struct {
+    int **mtx;
     int x;
     int y;
 } World;
@@ -23,13 +19,28 @@ typedef struct {
     int y;
 } Positions;
 
-typedef struct {
-    struct Node * node;
+struct Node {
+    struct Node *node;
     Positions positions;
-} Node;
+};
+
+typedef struct {
+    int score;
+    int status;
+    // 0 - menu
+    // 1 -
+    // 2 - game
+    // 10 - game over
+    int level;
+} Stat;
 
 typedef struct {
     World world;
+    struct Node *head;
+    int vector;
+    Stat stat;
+    int time_step;
+
 } GameData;
 
 #endif  // STRUCTURES_STRUCTURES_H

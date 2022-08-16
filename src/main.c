@@ -2,7 +2,8 @@
 #include "game.h"
 
 int main() {
-    GameData data = init_game();
-    runner(data);
-    return 0;
+  GameData data = init_game();
+  runner(data);
+  end_ncurses();
+  return 0;
 }
