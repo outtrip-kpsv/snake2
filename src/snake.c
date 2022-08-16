@@ -56,13 +56,20 @@ struct Node *snake_step(GameData *data, int vector) {
       || snake_cross(&res->positions,data->head)) {
     data->stat.status = 10;
   } else {
-    res->node = data->head;
-    data->head = res;
+    if(data->head->positions.x == data->apple.x && data->head->positions.y == data->apple.y){
+      res->node = data->head;
+      data->head = res;
+      data->create_apple = 1;
+    } else {
+      res->node = data->head;
+      data->head = res;
 
-    for (; data->head->node->node; data->head = data->head->node) {}
-    free(data->head->node->node);
-    data->head->node = NULL;
-    data->head = res;
+      for (; data->head->node->node; data->head = data->head->node) {}
+      free(data->head->node->node);
+      data->head->node = NULL;
+      data->head = res;
+    }
+
   }
 
   return data->head;

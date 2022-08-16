@@ -7,7 +7,7 @@
 #define FILL_SPASE ' '
 #define FILL_SNAKE ' '
 #define FILL_HEAD '+'
-#define FILL_EAT 'O'
+#define FILL_EAT '*'
 #define SPEED 1000000;
 
 #endif  // SRC_PROPERTIES_H

@@ -1,5 +1,6 @@
 
 #include "game.h"
+#include <stdio.h>
 
 World init_world() {
   World world;
@@ -14,6 +15,8 @@ Stat init_stat() {
   stat.level = 1;
   stat.score = 0;
   stat.status = 2;
+  stat.snake_length = SNAKE_LENGTH;
+  stat.spaced_fill = Y * X - stat.snake_length;
   return stat;
 }
 
@@ -24,16 +27,17 @@ GameData init_game() {
   data.stat = init_stat();
   data.vector = 0;
   data.time_step = clock();
+  data.create_apple = 1;
   start_ncurses();
   return data;
 }
 
 void runner(GameData data) {
-//    init_game();
   char ch = ' ';
   while (ch != 'q') {
     ch = (char) getch();
     key_handler(&data, ch);
+    if (data.create_apple) create_apple(&data);
     if (clock() - data.time_step >= 800000 - 50000 * data.stat.level) {
       snake_step(&data, data.vector);
       data.time_step = clock();
@@ -42,5 +46,6 @@ void runner(GameData data) {
   }
   destroy_mtx(data.world.mtx, data.world.y);
   end_ncurses();
+  printf("lll");
 
 }

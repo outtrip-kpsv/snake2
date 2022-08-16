@@ -16,6 +16,7 @@ void render(GameData data) {
   switch (data.stat.status) {
     case 2:clear_world(&data);
       add_snake(&data);
+      add_apple(&data);
       print_world_frame();
       print_mtx(data.world);
       print_status_frame(data);
@@ -40,14 +41,21 @@ void print_mtx(World world) {
     move(1 + y, 1);
     for (int x = 0; x < world.x; x++) {
       switch (world.mtx[y][x]) {
-        case 0:attron(COLOR_PAIR(2));
+        case 0:
+          attron(COLOR_PAIR(2));
           printw("%c", FILL_SPASE);
           break;
-        case 1:attron(COLOR_PAIR(1));
+        case 1:
+          attron(COLOR_PAIR(1));
           printw("%c", FILL_SNAKE);
           break;
-        case 2:attron(COLOR_PAIR(3));
+        case 2:
+          attron(COLOR_PAIR(3));
           printw("%c", FILL_HEAD);
+          break;
+        case 8:
+          attron(COLOR_PAIR(2));
+          printw("%c", FILL_EAT);
           break;
       }
     }
@@ -83,6 +91,7 @@ void debug_log(GameData *data) {
   for (;tmp;tmp=tmp->node){
     printw("{%d:%d} ", tmp->positions.y, tmp->positions.x);
   }
+  printw("\n|%d|", data->debug_log.rand);
 }
 
 void print_game_over(GameData data){

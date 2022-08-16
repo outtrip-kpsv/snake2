@@ -32,7 +32,15 @@ typedef struct {
     // 2 - game
     // 10 - game over
     int level;
+    int snake_length;
+    int spaced_fill;
 } Stat;
+
+typedef struct {
+  int rand;
+  int x_apple;
+  int y_apple;
+} Debug_log;
 
 typedef struct {
     World world;
@@ -40,7 +48,12 @@ typedef struct {
     int vector;
     Stat stat;
     int time_step;
+    Positions apple;
+    int create_apple;
+    Debug_log debug_log;
 
 } GameData;
+
+
 
 #endif  // STRUCTURES_STRUCTURES_H
