@@ -13,6 +13,7 @@ void start_ncurses() {
 }
 
 void render(GameData *data) {
+  erase();
   print_world_frame();
   switch (data->stat.status) {
     case 2:clear_world(data);
@@ -21,14 +22,15 @@ void render(GameData *data) {
 
       print_status_frame(data);
       debug_log(data);
-      print_mtx(data->world);
+//      print_mtx(data->world);
       break;
     case 10:
 //      print_mtx(data->world);
       print_game_over(*data);
       break;
   }
-//  print_mtx(data->world);
+  print_mtx(data->world);
+  move(100,100);
   refresh();
 }
 

@@ -43,7 +43,6 @@ struct Node *add_node(struct Node *node, int vector) {
 }
 
 struct Node *snake_step(GameData *data, int vector) {
-  printf("!! %d\n", data->head->positions.y);
   Positions v = go_vector(vector);
   struct Node *res = calloc(1, sizeof(struct Node));
 
