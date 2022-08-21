@@ -17,6 +17,7 @@ Stat init_stat() {
   stat.status = 2;
   stat.snake_length = SNAKE_LENGTH;
   stat.spaced_fill = Y * X - stat.snake_length;
+  stat.n_step = 1;
   return stat;
 }
 
@@ -29,6 +30,9 @@ GameData init_game() {
   data.time_step = clock();
   data.create_apple = 1;
   start_ncurses();
+  if (DEBUG) {
+    data.debug_log.log_file = create_log();
+  }
   return data;
 }
 
@@ -38,11 +42,14 @@ void runner(GameData data) {
     ch = (char) getch();
     key_handler(&data, ch);
     if (data.create_apple) create_apple(&data);
-    if (clock() - data.time_step >= 800000 - 50000 * data.stat.level) {
+    if (clock() - data.time_step >= 500000 - 50000 * data.stat.level) {
+      if(DEBUG){
+        log_print(data);
+      }
       snake_step(&data, data.vector);
       data.time_step = clock();
     }
-    render(data);
+    render(&data);
   }
   destroy_mtx(data.world.mtx, data.world.y);
   end_ncurses();

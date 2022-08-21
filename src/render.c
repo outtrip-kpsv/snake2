@@ -12,20 +12,20 @@ void start_ncurses() {
 
 }
 
-void render(GameData data) {
-  switch (data.stat.status) {
-    case 2:clear_world(&data);
-      add_snake(&data);
-      add_apple(&data);
+void render(GameData *data) {
+  switch (data->stat.status) {
+    case 2:clear_world(data);
+      add_apple(data);
+      add_snake(data);
       print_world_frame();
-      print_mtx(data.world);
+      print_mtx(data->world);
       print_status_frame(data);
-      debug_log(&data);
+      debug_log(data);
       break;
     case 10:
       print_world_frame();
-      print_mtx(data.world);
-      print_game_over(data);
+      print_mtx(data->world);
+      print_game_over(*data);
       break;
   }
   refresh();

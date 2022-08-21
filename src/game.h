@@ -3,10 +3,12 @@
 
 #include "process.h"
 #include "render.h"
+#include "debug.h"
 #include "structures.h"
 #include "properties.h"
 #include "snake.h"
 #include "key_handler.h"
+
 #include <ncurses.h>
 
 GameData init_game();

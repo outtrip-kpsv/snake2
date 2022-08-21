@@ -71,6 +71,7 @@ struct Node *snake_step(GameData *data, int vector) {
     }
 
   }
+  data->stat.n_step ++;
 
   return data->head;
 }

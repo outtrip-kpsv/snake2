@@ -8,7 +8,7 @@
 #include "properties.h"
 
 void start_ncurses();
-void render(GameData data);
+void render(GameData *data);
 void end_ncurses();
 void print_mtx(World world);
 void print_status_frame();

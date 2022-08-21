@@ -2,6 +2,7 @@
 #define STRUCTURES_STRUCTURES_H
 
 #include <time.h>
+#include <stdio.h>
 
 typedef struct {
     int x;
@@ -34,15 +35,18 @@ typedef struct {
     int level;
     int snake_length;
     int spaced_fill;
+    long n_step;
 } Stat;
 
 typedef struct {
   int rand;
   int x_apple;
   int y_apple;
+  FILE * log_file;
 } Debug_log;
 
 typedef struct {
+
     World world;
     struct Node *head;
     int vector;
