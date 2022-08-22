@@ -55,6 +55,7 @@ typedef struct {
     Positions apple;
     int create_apple;
     Debug_log debug_log;
+    int render;
 
 } GameData;
 

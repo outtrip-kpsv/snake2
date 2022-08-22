@@ -29,6 +29,7 @@ GameData init_game() {
   data.vector = 0;
   data.time_step = clock();
   data.create_apple = 1;
+  data.render = 1;
   start_ncurses();
   if (DEBUG) {
     data.debug_log.log_file = create_log();
@@ -48,8 +49,12 @@ void runner(GameData data) {
       }
       snake_step(&data, data.vector);
       data.time_step = clock();
+      data.render = 1;
     }
-    render(&data);
+    if (data.render) {
+      render(&data);
+      data.render = 0;
+    }
   }
   destroy_mtx(data.world.mtx, data.world.y);
   end_ncurses();

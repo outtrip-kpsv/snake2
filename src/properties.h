@@ -9,6 +9,6 @@
 #define FILL_HEAD '+'
 #define FILL_EAT '*'
 #define SPEED 1000000
-#define DEBUG 1
+#define DEBUG 0
 
 #endif  // SRC_PROPERTIES_H
